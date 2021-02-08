@@ -1,4 +1,4 @@
-FROM binhex/arch-base:latest
+FROM dkjer/arch-base:latest
 MAINTAINER binhex
 
 # additional files
@@ -12,6 +12,8 @@ ADD run/root/*.sh /root/
 
 # add bash script to run privoxy
 ADD run/nobody/*.sh /home/nobody/
+
+ADD scripts/*.sh /usr/local/bin/
 
 # install app
 #############

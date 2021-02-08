@@ -19,11 +19,10 @@ function create_openvpn_cli() {
 
 	fi
 
-	if [[ ! -z "${VPN_USER}" && ! -z "${VPN_PASS}" ]]; then
+	if [[ -s "/config/openvpn/credentials.conf" || -n "${VPN_USER}" && -n "${VPN_PASS}" ]]; then
 
 		# add additional flags to pass credentials
 		openvpn_cli="${openvpn_cli} --auth-user-pass credentials.conf"
-
 	fi
 
 	if [[ ! -z "${VPN_OPTIONS}" ]]; then

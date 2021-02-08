@@ -7,13 +7,13 @@ set -e
 ####
 
 # download build scripts from github
-curl --connect-timeout 5 --max-time 600 --retry 5 --retry-delay 0 --retry-max-time 60 -o /tmp/scripts-master.zip -L https://github.com/binhex/scripts/archive/master.zip
-
-# unzip build scripts
-unzip /tmp/scripts-master.zip -d /tmp
-
-# move shell scripts to /root
-mv /tmp/scripts-master/shell/arch/docker/*.sh /usr/local/bin/
+#curl --connect-timeout 5 --max-time 600 --retry 5 --retry-delay 0 --retry-max-time 60 -o /tmp/scripts-master.zip -L https://github.com/binhex/scripts/archive/master.zip
+#
+## unzip build scripts
+#unzip /tmp/scripts-master.zip -d /tmp
+#
+## move shell scripts to /root
+#mv /tmp/scripts-master/shell/arch/docker/*.sh /usr/local/bin/
 
 # detect image arch
 ####
@@ -353,7 +353,7 @@ if [[ "${VPN_ENABLED}" == "yes" ]]; then
 		echo "[info] NAME_SERVERS defined as '${NAME_SERVERS}'" | ts '%Y-%m-%d %H:%M:%.S'
 	else
 		echo "[warn] NAME_SERVERS not defined (via -e NAME_SERVERS), defaulting to name servers defined in readme.md" | ts '%Y-%m-%d %H:%M:%.S'
-		export NAME_SERVERS="209.222.18.222,84.200.69.80,37.235.1.174,1.1.1.1,209.222.18.218,37.235.1.177,84.200.70.40,1.0.0.1"
+		export NAME_SERVERS="84.200.69.80,209.244.0.3,1.1.1.1,37.235.1.174,84.200.70.40,209.244.0.4,1.0.0.1,37.235.1.177"
 	fi
 
 	if [[ "${VPN_PROV}" != "airvpn" ]]; then
